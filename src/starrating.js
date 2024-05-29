@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const containerstyle = {
+  boxSizing: "border-box",
   display: "flex",
   alignItems: "center",
   gap: "16px",
@@ -14,23 +15,28 @@ export default function StarRating({
   maxstars = 5,
   color = "#fcc419",
   size = "48",
+  setuserrating,
 }) {
   const [rating, setrating] = useState(0);
   const [temprate, settemprate] = useState(0);
+
   const textstyle = {
     lineHeight: "1",
     margin: "0px",
     color,
     fontSize: `${size / 1.5}px`,
   };
-
+  function setratingfun(rating) {
+    setrating(rating);
+    setuserrating(rating);
+  }
   return (
     <div style={containerstyle}>
       <div style={starcontainer}>
         {Array.from({ length: maxstars }, (_, i) => (
           <Star
             key={i}
-            onRate={() => setrating(i + 1)}
+            onRate={() => setratingfun(i + 1)}
             full={temprate ? temprate >= i + 1 : rating >= i + 1}
             onhover={() => settemprate(i + 1)}
             onmouseleave={() => settemprate(0)}
