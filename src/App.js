@@ -56,7 +56,7 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isloading, setisloading] = useState(false);
   const [error, seterror] = useState("");
-  const [query, setQuery] = useState("interstellar");
+  const [query, setQuery] = useState("");
   const [selectedid, setselectedid] = useState(null);
 
   function handleselectedid(id) {
@@ -71,14 +71,17 @@ export default function App() {
   function handledeletewatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
+
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchdata() {
         try {
           setisloading(true);
           seterror("");
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            { signal: controller.signal }
           );
           if (!res.ok) {
             throw new Error("Something went wrong with fetching movies");
@@ -88,9 +91,9 @@ export default function App() {
             throw new Error("Movie not found");
           }
           setMovies(data.Search);
+          seterror("");
         } catch (err) {
-          console.log(err.message);
-          seterror(err.message);
+          if (err.name !== "AbortError") seterror(err.message);
         } finally {
           setisloading(false);
         }
@@ -100,7 +103,12 @@ export default function App() {
         seterror("");
         return;
       }
+      handleclose();
       fetchdata();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
@@ -270,6 +278,21 @@ function Selectedmovie({ selectedid, onclosemovie, onaddwatched, watched }) {
     };
     onaddwatched(newWatchedMovie);
   }
+  useEffect(
+    function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onclosemovie();
+          console.log("closing");
+        }
+      }
+      document.addEventListener("keydown", callback);
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onclosemovie]
+  );
 
   useEffect(
     function () {
