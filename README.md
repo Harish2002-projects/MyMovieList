@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Movie Watch List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The **Movie Watch List App** is a React-based application that allows users to search for movies using an API, rate them, and add them to their personal watch list. 
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Search Movies**: Users can search for movies using a search bar that queries an external movie API.
+- **Rate Movies**: Users can rate movies before adding them to their watch list.
+- **Add to Watch List**: Users can add movies to their watch list with a click of a button.
+- **View Watch List**: Users can view their watch list with the ratings they assigned.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Screenshot 2024-05-30 114927](https://github.com/Harish2002-projects/MyMovieList/assets/123865573/ee70fc5c-31c6-4c9d-9533-e3130e696f98)
 
-### `npm test`
+![image](https://github.com/Harish2002-projects/MyMovieList/assets/123865573/fe8e88a0-cdeb-4d79-8b7c-d9762c76a34e)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check out the app at https://harish-moviewatchlist.netlify.app/
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```sh
+   git clone https://github.com/yourusername/movie-watch-list-app.git
+   cd movie-watch-list-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies**:
 
-### `npm run eject`
+   ```sh
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Create a `.env` file** in the root directory and add your API key:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
+   REACT_APP_MOVIE_API_KEY=your_api_key_here
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Start the development server**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```sh
+   npm start
+   ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Search for Movies**:
+   - Enter a movie title in the search bar.
+   - The app will fetch and display a list of movies matching the search query.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Rate and Add Movies**:
+   - Click on a movie to view more details.
+   - Rate the movie using the provided rating system.
+   - Click the "Add to Watch List" button to add the movie to your watch list.
 
-### Code Splitting
+3. **View Watch List**:
+   - Navigate to the watch list to see all the movies you have added along with your ratings.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app uses the OMDb API - The Open Movie Database(http://www.omdbapi.com/?apikey=[yourkey]&) to fetch movie data. You need to sign up and get an API key to use it.
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Fork the repository.
+2. Create a new branch: `git checkout -b my-feature-branch`.
+3. Make your changes and commit them: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin my-feature-branch`.
+5. Submit a pull request.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
