@@ -14,7 +14,7 @@ The **Movie Watch List App** is a React-based application that allows users to s
 ## Demo
 
 ![Screenshot 2024-05-30 114927](https://github.com/Harish2002-projects/MyMovieList/assets/123865573/ee70fc5c-31c6-4c9d-9533-e3130e696f98)
-![Screenshot 2024-05-30 114943](https://github.com/Harish2002-projects/MyMovieList/assets/123865573/cdd84454-676e-4211-91b3-e84ab836053f)
+![image](https://github.com/Harish2002-projects/MyMovieList/assets/123865573/fe8e88a0-cdeb-4d79-8b7c-d9762c76a34e)
 
 
 ## Installation
