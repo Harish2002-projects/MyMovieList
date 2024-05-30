@@ -80,7 +80,7 @@ export default function App() {
           setisloading(true);
           seterror("");
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
             { signal: controller.signal }
           );
           if (!res.ok) {
@@ -299,7 +299,7 @@ function Selectedmovie({ selectedid, onclosemovie, onaddwatched, watched }) {
       async function getmoviedetails() {
         setisloading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedid}`
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedid}`
         );
         const data = await res.json();
         setmovie(data);
